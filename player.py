@@ -10,7 +10,15 @@ from typing import Optional, List, Tuple
 import chess #to read FEN, generate legal moves etc..
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-from chess_tournament import Player
+from chess_tournament import (
+    Game,
+    Player,
+    RandomPlayer,
+    LMPlayer,
+    SmolPlayer,
+    EnginePlayer,
+    run_tournament
+    )
 
 _UCI_RE = re.compile(r"\b([a-h][1-8][a-h][1-8][qrbn]?)\b", re.IGNORECASE) #allowed moves formation
 
