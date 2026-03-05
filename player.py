@@ -194,7 +194,7 @@ from huggingface_hub import login
 login()
 
 #making sure transformers run on the latest model to avoid collapses
-!pip install git+https://github.com/huggingface/transformers.git
+subprocess.check_call([sys.executable, "-m", "pip", "install", "git+https://github.com/huggingface/transformers.git"])
 
 """After running the upgrade commands above, please re-run the cells to initialize the tokenizer and model (cells `760AEb3VGU6g`, `yRrZn7GUgz7o`, and `Of_N5qhviQKM`) to see if the issue is resolved."""
 
