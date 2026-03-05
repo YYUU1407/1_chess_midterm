@@ -27,7 +27,7 @@ class TransformerPlayer(Player):
    def __init__(
         self,
         name: str,
-        model_name: str = "Qwen/Qwen3.5-4B",
+        model_name = "Qwen/Qwen3.5-4B",
         seed: int = 123,  #ensure repeatble results
         use_4bit: bool = True,  #use model in 4-bit to fit in Colab GPU memory
         # generation fallback params
