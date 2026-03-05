@@ -26,9 +26,12 @@ Ok, enough of general description, let's move on to something more concrete. We 
 """
 
 # Commented out IPython magic to ensure Python compatibility.
-!git clone https://github.com/bylinina/chess_exam.git
-# %cd /content/chess_exam
-!pip install -e .
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "chess"])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "torch"])
+subprocess.check_call([sys.executable, "-m", "pip", "install", "transformers"])
 
 from chess_tournament import (
     Game,
