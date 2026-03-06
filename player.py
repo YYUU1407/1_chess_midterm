@@ -274,6 +274,8 @@ model = AutoModelForCausalLM.from_pretrained(
 
 my_player = TransformerPlayer("Student")   # must work with name only
 
+random1 = RandomPlayer("Random-1")
+random2 = RandomPlayer("Random-2")
 game = Game(my_player, random2, max_half_moves=200)
 result = game.play(2)
 result
