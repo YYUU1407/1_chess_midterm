@@ -1,7 +1,7 @@
 torch
 transformers>=4.0.0
 accelerate
-bitsandbytes
+fouroversix
 python-chess
 
 

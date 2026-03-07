@@ -10,6 +10,8 @@ from typing import Optional, List, Tuple
 import chess #to read FEN, generate legal moves etc..
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from fouroversix import FourOverSixConfig, AutoModelForCausalLM4bit
+from transformers import BitsAndBytesConfig   #for 4-bit quantization
 from chess_tournament import (
     Game,
     Player,
