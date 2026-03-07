@@ -272,4 +272,4 @@ model = AutoModelForCausalLM.from_pretrained(
     quantization_config=bnb_config
     )
 
-my_player = TransformerPlayer("Student")   # must work with name only
+my_player = TransformerPlayer("Student")   # student name, as suggested in the prompt
