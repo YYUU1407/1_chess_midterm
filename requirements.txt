@@ -1,8 +1,6 @@
-torch==2.5.1
-transformers==4.46.3
-tokenizers==0.20.3
-safetensors==0.4.5
-huggingface_hub==0.26.2
-python-chess==1.999
+torch
+transformers>=4.49.0
+accelerate
+python-chess
 
 
