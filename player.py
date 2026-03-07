@@ -35,7 +35,7 @@ class TransformerPlayer(Player):
    def __init__(
         self,
         name: str,
-        model_name = "Qwen/Qwen2.5-7B-Instruct",
+        model_name = "EleutherAI/pythia-160m",
         seed: int = 123,  #ensure repeatble results
         use_4bit: bool = True,  #use model in 4-bit to fit in Colab GPU memory
         # generation fallback params
@@ -265,9 +265,9 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16,     #defining new bit config (4bit) for new syntax off model load
     bnb_4bit_use_double_quant=True
 )
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-7B-Instruct")
+tokenizer = AutoTokenizer.from_pretrained("EleutherAI/pythia-160m")
 model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen2.5-7B-Instruct",
+    "EleutherAI/pythia-160m",
     device_map="auto",
     quantization_config=bnb_config
     )
