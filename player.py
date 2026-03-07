@@ -262,8 +262,7 @@ class TransformerPlayer(Player):
 
 tokenizer = AutoTokenizer.from_pretrained("EleutherAI/pythia-160m")
 model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-160m", )
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-160m", device_map="auto", trust_remote_code=True, 
-                                             quantization_config=FourOverSixConfig())
+model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-160m", device_map="auto", trust_remote_code=True)
     
 
 my_player = TransformerPlayer("Student")   # student name, as suggested in the prompt
