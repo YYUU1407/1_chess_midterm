@@ -35,7 +35,7 @@ class TransformerPlayer(Player):
    def __init__(
         self,
         name: str,
-        model_name = "deepseek-ai/DeepSeek-V3.2",
+        model_name = "deepseek-ai/DeepSeek-R1",
         seed: int = 123,  #ensure repeatble results
         use_4bit: bool = True,  #use model in 4-bit to fit in Colab GPU memory
         # generation fallback params
@@ -265,9 +265,9 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.float16,     #defining new bit config (4bit) for new syntax off model load
     bnb_4bit_use_double_quant=True
 )
-tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-V3.2")
+tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1")
 model = AutoModelForCausalLM.from_pretrained(
-    "deepseek-ai/DeepSeek-V3.2",
+    "deepseek-ai/DeepSeek-R1",
     device_map="auto",
     quantization_config=bnb_config
     )
