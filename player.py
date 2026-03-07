@@ -36,7 +36,7 @@ class TransformerPlayer(Player):
    def __init__(
         self,
         name: str,
-        model_name = "EleutherAI/pythia-160m",
+        model_name = "Qwen/Qwen2.5-1.5B",
         seed: int = 123,  #ensure repeatble results
         use_4bit: bool = True,  #use model in 4-bit to fit in Colab GPU memory
         # generation fallback params
@@ -260,9 +260,8 @@ class TransformerPlayer(Player):
         # last resort: random legal move
         return random.choice(legal)
 
-tokenizer = AutoTokenizer.from_pretrained("EleutherAI/pythia-160m")
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-160m", )
-model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-160m", device_map="auto", trust_remote_code=True)
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B")
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B", device_map="auto", trust_remote_code=True)
     
 
 my_player = TransformerPlayer("Student")   # student name, as suggested in the prompt
