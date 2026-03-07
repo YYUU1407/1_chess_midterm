@@ -19,7 +19,6 @@ from chess_tournament import (
     EnginePlayer,
     run_tournament
     )
-from transformers.utils.quantization_config import FourOverSixConfig
 
 _UCI_RE = re.compile(r"\b([a-h][1-8][a-h][1-8][qrbn]?)\b", re.IGNORECASE) #allowed moves formation
 
