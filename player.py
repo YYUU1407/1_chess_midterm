@@ -9,7 +9,7 @@ from typing import Optional, List, Tuple
 
 import chess #to read FEN, generate legal moves etc..
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from chess_tournament import (
     Game,
     Player,
@@ -259,17 +259,8 @@ class TransformerPlayer(Player):
         # last resort: random legal move
         return random.choice(legal)
 
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.float16,     #defining new bit config (4bit) for new syntax off model load
-    bnb_4bit_use_double_quant=True
-)
 tokenizer = AutoTokenizer.from_pretrained("EleutherAI/pythia-160m")
-model = AutoModelForCausalLM.from_pretrained(
-    "EleutherAI/pythia-160m",
-    device_map="auto",
-    quantization_config=bnb_config
-    )
+model = AutoModelForCausalLM.from_pretrained("EleutherAI/pythia-160m")
+    
 
 my_player = TransformerPlayer("Student")   # student name, as suggested in the prompt
