@@ -1,5 +1,5 @@
 torch
-transformers>=4.0.0,<6.0.0
+transformers==4.51.3
 accelerate
 python-chess
 
