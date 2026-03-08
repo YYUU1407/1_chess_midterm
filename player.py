@@ -9,7 +9,7 @@ from typing import Optional, List, Tuple
 
 import chess #to read FEN, generate legal moves etc..
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig #to load and run the model efficiently 
 from chess_tournament import (
     Game,
     Player,
