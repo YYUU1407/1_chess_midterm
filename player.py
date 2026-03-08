@@ -9,8 +9,7 @@ from typing import Optional, List, Tuple
 
 import chess #to read FEN, generate legal moves etc..
 import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
-from transformers import BitsAndBytesConfig   #for 4-bit quantization
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from chess_tournament import (
     Game,
     Player,
@@ -36,7 +35,7 @@ class TransformerPlayer(Player):
    def __init__(
         self,
         name: str,
-        model_name = "Qwen/Qwen3.5-4B",
+        model_name = "Qwen/Qwen2.5-1.5B",
         seed: int = 123,  #ensure repeatble results
         use_4bit: bool = True,  #use model in 4-bit to fit in Colab GPU memory
         # generation fallback params
@@ -260,17 +259,8 @@ class TransformerPlayer(Player):
         # last resort: random legal move
         return random.choice(legal)
 
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.float16,     #defining new bit config (4bit) for new syntax off model load
-    bnb_4bit_use_double_quant=True
-)
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen3.5-4B")
-model = AutoModelForCausalLM.from_pretrained(
-    "Qwen/Qwen3.5-4B",
-    device_map="auto",
-    quantization_config=bnb_config
-    )
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen2.5-1.5B")
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-1.5B", device_map="auto", trust_remote_code=True)
+    
 
 my_player = TransformerPlayer("Student")   # student name, as suggested in the prompt
